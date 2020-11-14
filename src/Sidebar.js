@@ -9,10 +9,14 @@ import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMore';
+import { useStateValue } from './StateProvider';
+
 function Sidebar() {
+    const [{ user }, dispatch] = useStateValue();
     return (
         <div className='sidebar'>
-            <SidebarRow src='https://avatars2.githubusercontent.com/u/57330277?s=460&u=775ec18cfe93ff881788343f57440a235afdff46&v=4' title='leilabaneshi' />
+            <SidebarRow src={user.photoURL}
+                title={user.displayName} />
             <SidebarRow Icon={LocalHospitalIcon} title='COVID-19 Information Center' />
             <SidebarRow Icon={EmojiFlagsIcon} title='Pages' />
             <SidebarRow Icon={PeopleIcon} title='Friends' />
